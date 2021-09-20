@@ -2,12 +2,14 @@ import requests
 
 
 class ApiHandler:
-    def __init__(self, url):
-        self.base_url = url
-
-    def get_data(self):
+    @staticmethod
+    def get_data(url):
+        """
+        As a result function returns data from API
+        :return: requests' object
+        """
         try:
-            result = requests.get(self.base_url)
+            result = requests.get(url)
             status_code = result.status_code
 
             if status_code == requests.codes.ok:
